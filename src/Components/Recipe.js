@@ -3,9 +3,10 @@ const Recipe = ({label, img, ingredients}) => {
         <div className='recipe'>
             <h1>{label}</h1>
             <img src={img} alt='img'/>
+            
             <div className='ingredients'>
                 {ingredients.map(i => (
-                    <ul>
+                    <ul key={i}>
                         <li>{i}</li>
                     </ul>
                 ))}

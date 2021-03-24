@@ -1,44 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Pacifico&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
 }
 
 .App {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   text-align: center;
   background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
-  /* background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%); */
+ 
 }
 
 .search-container {
-  min-height: 20vh;
-}
-
-.recipes-container {
-  min-height: 65vh;
-  overflow: auto;
-  
-}
-
-.recipes {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.recipe img{
-  object-fit: contain;
+  min-height: 10vh;
 }
 
 .search {
-  margin: 5em;
+  margin: 2em 0 3em 0;
+}
+
+.search h1 {
+  margin-bottom: 1em;
+  font-size: 3em;
+  font-family: 'Pacifico', cursive;
 }
 
 .search-bar {
-  /* padding: 2em; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .search-bar input {
@@ -56,6 +51,54 @@
   padding: 0.5em 0.3em;
 }
 
-.ingredients ul{
-  list-style-type: none;
+.recipes-container {
+  min-height: 65vh;
+  overflow: auto;
+}
+
+.recipes {
+  /* display: flex;
+  flex-wrap: wrap; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 3em;
+  margin: 0 4em 4em 4em;
+}
+
+.recipe {
+  background-color:ivory;
+  border-radius: 6px;
+}
+
+.recipe img{
+  border-radius: 50%;
+  height: 15em;
+  margin-top: 1em;
+}
+
+
+.ingredients {
+  text-align: initial;
+  padding: 1em 3em 1em 7em;
+  
+}
+
+@media all and (max-width: 420px){
+  .recipes {
+    display: flex;
+    flex-direction: column;
+    margin: 0 15px;
+
+  }
+  .recipe img{
+    height: 10em;
+  }
+
+  .ingredients {
+    padding: 1em 2em 1em 3em;
+  }
+
+  .search h1 {
+    font-size: 2em;
+  }
 }

@@ -16,7 +16,13 @@ function App() {
     const res = await fetch(`https://api.edamam.com/search?q=${search}&app_id=${api.id}&app_key=${api.key}`)
     if(res.status === 200){
       const data = await res.json()
-      setItems(data.hits)
+      if(data.hits.length !== 0){
+        setItems(data.hits)
+      }else{
+        alert('No recipe found')
+      }
+    }else{
+      alert('Fetch error')
     }
   }
 
@@ -31,12 +37,10 @@ function App() {
   return (
     <div className="App">
       <div className='search-container'>
-        {/* <h1>Div 1</h1> */}
         <SearchDiv onChange={onChange} input={input} onSubmit={getSearch}/>
       </div>
 
       <div className='recipes-container'>
-        {/* <h1>Div 2</h1> */}
         <div className='recipes'>
           {items.map(item => (
             <Recipe 
